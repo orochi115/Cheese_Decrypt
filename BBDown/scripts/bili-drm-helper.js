@@ -68,8 +68,8 @@ async function loadSdkText(explicitPath) {
         const st = await fsp.stat(cached);
         if (st.size > 100_000) return await fsp.readFile(cached, 'utf8');
     } catch { /* not cached */ }
-    // 2) 项目根 (相对 helper 脚本: ../../<file>) — 方便首次运行无外网时也能跑
-    const sibling = path.resolve(__dirname, '..', '..', SDK_FILENAME);
+    // 2) 与 helper 同目录 (publish/scripts/ 或源码 scripts/) — 离线备用
+    const sibling = path.resolve(__dirname, SDK_FILENAME);
     try {
         const st = await fsp.stat(sibling);
         if (st.size > 100_000) {

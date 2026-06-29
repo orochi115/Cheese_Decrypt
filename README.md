@@ -11,7 +11,7 @@ B 站课堂（cheese）DRM 加密课程的下载与解密工具链。在 [BBDown
 - `mp4decrypt` 解密 CENC 加密的 mp4/m4a 并混流输出
 - `cheese.sh`：接受 `ssXXX` / `epXXX`，默认下载全集，自动检测登录态
 - 可选 Tampermonkey 脚本：浏览器内手动取 `kid:key`
-- 仓库内置 `npd.drm_sdk.7d8e1e5f.js`，支持离线取钥
+- 仓库内置 `BBDown/scripts/npd.drm_sdk.7d8e1e5f.js`，支持离线取钥
 
 ## 架构
 
@@ -68,12 +68,12 @@ cd Cheese_Decrypt
 │   ├── cheese-drm-notes.md   ← 现行协议、实现说明、踩坑记录
 │   └── references/
 │       └── kanxue-thread-287970/   ← 看雪原文离线 HTML + 提炼笔记
-├── npd.drm_sdk.7d8e1e5f.js   ← B 站 DRM SDK（离线备用）
 ├── Bento4/                   ← git submodule（mp4decrypt 源码）
 └── BBDown/                   ← 改造后的 BBDown
     └── scripts/
         ├── bili-drm-helper.js
-        └── bili-cheese-key-helper.user.js
+        ├── bili-cheese-key-helper.user.js
+        └── npd.drm_sdk.7d8e1e5f.js   ← B 站 DRM SDK（离线备用）
 ```
 
 ## 文档

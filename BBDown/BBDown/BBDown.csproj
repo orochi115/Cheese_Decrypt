@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <None Include="..\scripts\bili-drm-helper.js" Link="scripts\bili-drm-helper.js" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+    <None Include="..\scripts\npd.drm_sdk.7d8e1e5f.js" Link="scripts\npd.drm_sdk.7d8e1e5f.js" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
   </ItemGroup>
 
 </Project>

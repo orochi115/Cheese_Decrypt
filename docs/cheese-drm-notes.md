@@ -48,7 +48,7 @@
 
 - 内化 `npd.drm_sdk.7d8e1e5f.js` 的 SPC/CKC 协议
 - BBDown 通过子进程调用，stdout 返回 `kid:key`
-- 优先使用仓库根目录的 SDK 文件（离线），否则从 CDN 下载并缓存
+- 优先使用 `BBDown/scripts/` 下同目录 SDK 文件（离线），`dotnet publish` 时会一并复制到 `publish/scripts/`；否则从 CDN 下载并缓存
 
 ### 2.3 Tampermonkey 用户脚本 — ✅ 跑通自动取 kid:key
 
@@ -208,7 +208,6 @@ P5 已在本地验证下载并解密通过。其他集的 KID 可在脚本面板
 ├── docs/
 │   ├── cheese-drm-notes.md                ← 本文件（现行协议与实现）
 │   └── references/kanxue-thread-287970/   ← 看雪原文离线 HTML + 提炼笔记
-├── npd.drm_sdk.7d8e1e5f.js                ← B 站 DRM SDK（离线备用，亦可从 CDN 获取）
 ├── Bento4/                                ← git submodule（mp4decrypt 源码）
 ├── BBDown/                                ← 改造后的 BBDown 源码
 │   ├── BBDown/
@@ -219,7 +218,8 @@ P5 已在本地验证下载并解密通过。其他集的 KID 可在脚本面板
 │   │   └── Parser.cs                      ← DRM 解析 + v1 端点
 │   └── scripts/
 │       ├── bili-drm-helper.js             ← Node.js --drm-auto helper
-│       └── bili-cheese-key-helper.user.js ← Tampermonkey 脚本
+│       ├── bili-cheese-key-helper.user.js ← Tampermonkey 脚本
+│       └── npd.drm_sdk.7d8e1e5f.js        ← B 站 DRM SDK（离线备用）
 └── (gitignored: publish*/, BBDown.data, diag*.txt, netlog.txt)
 ```
 
