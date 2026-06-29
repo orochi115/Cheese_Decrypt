@@ -2,6 +2,7 @@
 
 > 基于看雪论坛文章 [thread-287970](https://bbs.kanxue.com/thread-287970.htm)（作者 mb_jepgtozh，2025-08-11）整理的技术笔记。
 > 本笔记为复述+图片信息提取，重点保留代码片段、接口字段、调用链等可直接用于复现的技术信息。
+> 原文配图见 [`docs/references/kanxue-thread-287970/article-images/`](docs/references/kanxue-thread-287970/article-images/)；2026 现行协议差异见 [`HANDOVER.md`](HANDOVER.md)。
 
 ---
 

@@ -203,9 +203,11 @@ P5 已在本地验证下载并解密通过。其他集的 KID 可在脚本面板
 
 ```
 <repo-root>/
+├── README.md                              ← 公开说明与快速开始
 ├── HANDOVER.md                            ← 本文件
 ├── cheese.sh                              ← 一键下载脚本
 ├── bilibili_drm_流程分析笔记.md           ← 看雪原文整理（旧协议参考）
+├── docs/references/kanxue-thread-287970/  ← 看雪原文链接与配图归档
 ├── npd.drm_sdk.7d8e1e5f.js                ← B 站 DRM SDK（离线备用，亦可从 CDN 获取）
 ├── Bento4/                                ← git submodule（mp4decrypt 源码，上游无本地修改）
 ├── BBDown/                                ← 改造后的 BBDown 源码（fork，非 submodule）
