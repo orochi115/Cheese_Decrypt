@@ -64,12 +64,13 @@ cd Cheese_Decrypt
 ```text
 ├── README.md                 ← 本文件
 ├── cheese.sh                 ← 一键下载入口
-├── HANDOVER.md               ← 协议细节、踩坑记录、改造说明
-├── bilibili_drm_流程分析笔记.md  ← 看雪原文技术提炼
-├── docs/references/          ← 外部参考资料归档
+├── docs/
+│   ├── cheese-drm-notes.md   ← 现行协议、实现说明、踩坑记录
+│   └── references/
+│       └── kanxue-thread-287970/   ← 看雪原文离线 HTML + 提炼笔记
 ├── npd.drm_sdk.7d8e1e5f.js   ← B 站 DRM SDK（离线备用）
 ├── Bento4/                   ← git submodule（mp4decrypt 源码）
-└── BBDown/                   ← 改造后的 BBDown（fork 源码）
+└── BBDown/                   ← 改造后的 BBDown
     └── scripts/
         ├── bili-drm-helper.js
         └── bili-cheese-key-helper.user.js
@@ -79,9 +80,10 @@ cd Cheese_Decrypt
 
 | 文档 | 内容 |
 |------|------|
-| [HANDOVER.md](HANDOVER.md) | 2026 现行协议、端点、SDK 用法、已知踩坑 |
-| [bilibili_drm_流程分析笔记.md](bilibili_drm_流程分析笔记.md) | 看雪 thread-287970 技术复述 |
-| [docs/references/kanxue-thread-287970/](docs/references/kanxue-thread-287970/) | 看雪原文链接与配图归档 |
+| [docs/cheese-drm-notes.md](docs/cheese-drm-notes.md) | **本项目** 2026 现行协议、端点、SDK 用法、已知踩坑 |
+| [docs/references/kanxue-thread-287970/](docs/references/kanxue-thread-287970/) | **看雪原文** 离线 HTML、提炼笔记（2025 旧协议参考） |
+
+阅读顺序建议：先看 `cheese-drm-notes.md` 了解现行实现；需要追溯背景时再打开 `kanxue-thread-287970/` 里的原文与笔记。
 
 ## 相关链接
 

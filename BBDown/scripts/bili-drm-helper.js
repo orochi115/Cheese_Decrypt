@@ -192,7 +192,7 @@ async function fetchCert() {
 
 function genAesKey() {
     // 16 字节 ASCII (charcode 1..126), 必须是字符串而非 Uint8Array
-    // 见 HANDOVER.md §4.2 与用户脚本 genAesSessionKey
+    // 见 docs/cheese-drm-notes.md §4.2 与用户脚本 genAesSessionKey
     let s = '';
     for (let i = 0; i < 16; i++) s += String.fromCharCode(1 + crypto.randomInt(126));
     return s;

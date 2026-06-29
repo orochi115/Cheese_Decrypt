@@ -2,7 +2,7 @@
 
 > 基于看雪论坛文章 [thread-287970](https://bbs.kanxue.com/thread-287970.htm)（作者 mb_jepgtozh，2025-08-11）整理的技术笔记。
 > 本笔记为复述+图片信息提取，重点保留代码片段、接口字段、调用链等可直接用于复现的技术信息。
-> 原文配图见 [`docs/references/kanxue-thread-287970/article-images/`](docs/references/kanxue-thread-287970/article-images/)；2026 现行协议差异见 [`HANDOVER.md`](HANDOVER.md)。
+> 原文配图嵌入 [`article.html`](article.html)（资源在 [`article_files/`](article_files/)）；2026 现行协议差异见 [`docs/cheese-drm-notes.md`](../../cheese-drm-notes.md)。
 
 ---
 
@@ -404,4 +404,4 @@ ffmpeg.exe -i voice_.m4a -i video_.mp4 -c:v copy -c:a copy output.mp4
 
 - bento4 DASH 加密与 DRM：<https://www.bento4.com/developers/dash/encryption_and_drm/>
 - BBDown：<https://github.com/nilaoda/BBDown>
-- 原文：看雪 thread-287970
+- 原文离线版：[article.html](article.html)（看雪 [thread-287970](https://bbs.kanxue.com/thread-287970.htm)）
