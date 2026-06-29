@@ -1,0 +1,37 @@
+# ----- 凭证 / 个人数据 (绝对不能提交) -----
+**/BBDown.data
+*.session
+*.cookie
+
+# ----- 诊断 / 抓包 (含个人 mid / cookie / 签名 URL) -----
+diag*.txt
+netlog.txt
+*.har
+
+# ----- 构建产物 -----
+**/bin/
+**/obj/
+BBDown/publish/
+BBDown/publish_new/
+publish*/
+*.dll
+*.pdb
+*.dSYM/
+
+# ----- 第三方 / 缓存资源 (体积大或可重新获取) -----
+\[原创\]\[首发\]*.html
+\[原创\]\[首发\]*_files/
+
+# ----- 下载产物 (BBDown 跑测试时落到仓库根) -----
+*.mp4
+*.m4a
+*.aac
+*.flv
+
+# ----- 编辑器 / 系统 / 工具元数据 -----
+.DS_Store
+.vscode/
+.idea/
+.claude/
+*.swp
+*~
