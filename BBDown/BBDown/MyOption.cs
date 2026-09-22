@@ -51,6 +51,10 @@ internal class MyOption
     public string[] Keys { get; set; } = Array.Empty<string>();
     public string Mp4decryptPath { get; set; } = "";
     public bool DrmAuto { get; set; } = false;
+    /// <summary>
+    /// 课堂文件名: 「课程名 [ssID]/[Pxx]分P标题 [epID].mp4」。默认关闭。
+    /// </summary>
+    public bool CheeseIdName { get; set; } = false;
     public string NodePath { get; set; } = "";
     public string DrmHelperPath { get; set; } = "";
     public string UposHost { get; set; } = "";

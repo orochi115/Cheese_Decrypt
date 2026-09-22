@@ -50,7 +50,8 @@ public class CheeseInfoFetcher : IFetcher
             PagesInfo = pagesInfo,
             IsBangumi = true,
             IsCheese = true,
-            Index = index
+            Index = index,
+            SeasonId = data.TryGetProperty("season_id", out var seasonId) ? seasonId.ToString() : ""
         };
 
         return info;

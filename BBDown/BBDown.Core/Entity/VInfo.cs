@@ -27,6 +27,11 @@ public class VInfo
     public bool IsCheese { get; set; }
 
     /// <summary>
+    /// 课堂 season id（不含 ss 前缀）。仅 cheese 有值。
+    /// </summary>
+    public string SeasonId { get; set; } = "";
+
+    /// <summary>
     /// 番剧是否完结
     /// </summary>
     public bool IsBangumiEnd { get; set; }

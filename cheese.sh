@@ -4,6 +4,8 @@
 #   ./cheese.sh ss723490818              # 整个课程
 #   ./cheese.sh ep2285190                # 某一集
 #   ./cheese.sh https://...cheese/play/ssXXX [BBDown 其他参数]
+#   ./cheese.sh ss723490818 --cheese-id-name
+#       可选: 目录「课程名 [ssID]」, 单集「[Pxx]标题 [epID].mp4」, 同名已存在则跳过。默认不启用。
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

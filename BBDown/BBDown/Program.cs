@@ -347,6 +347,24 @@ partial class Program
             savePathFormat = string.IsNullOrEmpty(myOption.MultiFilePattern) ? MultiPageDefaultSavePath : myOption.MultiFilePattern;
         }
 
+        // 课堂可选命名: 课程名 [ssID]/[Pxx]标题 [epID].mp4。未显式传 -F/-M 时才接管, 避免改掉自定义模板。
+        if (myOption.CheeseIdName)
+        {
+            if (!cheese)
+            {
+                LogWarn("--cheese-id-name 仅对课堂(cheese)生效, 本次忽略");
+            }
+            else if (!string.IsNullOrEmpty(myOption.FilePattern) || !string.IsNullOrEmpty(myOption.MultiFilePattern))
+            {
+                LogWarn("已指定 -F/-M, --cheese-id-name 不覆盖自定义文件名");
+            }
+            else
+            {
+                savePathFormat = "<videoTitle> [ss<seasonId>]/[P<pageNumberWithZero>]<pageTitle> [ep<epid>]";
+                Log("课堂文件名: " + savePathFormat);
+            }
+        }
+
         foreach (Page p in pagesInfo)
         {
             if (pagesInfo.Count > 1 && delay > 0)
@@ -537,7 +555,7 @@ partial class Program
                 Audio? selectedBackgroundAudio = parsedResult.BackgroundAudioTracks.ElementAtOrDefault(aIndex);
 
                 LogDebug("Format Before: " + savePathFormat);
-                savePath = FormatSavePath(savePathFormat, title, selectedVideo, selectedAudio, p, pagesCount, apiType, pubTime);
+                savePath = FormatSavePath(savePathFormat, title, selectedVideo, selectedAudio, p, pagesCount, apiType, pubTime, vInfo.SeasonId);
                 LogDebug("Format After: " + savePath);
 
                 if (downloadDanmaku)
@@ -804,7 +822,7 @@ partial class Program
                     }
                 }
                 if (myOption.OnlyShowInfo) return;
-                savePath = FormatSavePath(savePathFormat, title, parsedResult.VideoTracks.ElementAtOrDefault(vIndex), null, p, pagesCount, apiType, pubTime);
+                savePath = FormatSavePath(savePathFormat, title, parsedResult.VideoTracks.ElementAtOrDefault(vIndex), null, p, pagesCount, apiType, pubTime, vInfo.SeasonId);
                 if (File.Exists(savePath) && new FileInfo(savePath).Length != 0)
                 {
                     Log($"{savePath}已存在, 跳过下载...");
@@ -927,7 +945,7 @@ partial class Program
             .ToList();
     }
 
-    private static string FormatSavePath(string savePathFormat, string title, Video? videoTrack, Audio? audioTrack, Page p, int pagesCount, string apiType, long pubTime)
+    private static string FormatSavePath(string savePathFormat, string title, Video? videoTrack, Audio? audioTrack, Page p, int pagesCount, string apiType, long pubTime, string seasonId = "")
     {
         var result = savePathFormat.Replace('\\', '/');
         var regex = InfoRegex();
@@ -957,6 +975,8 @@ partial class Program
                 "bvid" => p.bvid,
                 "aid" => p.aid,
                 "cid" => p.cid,
+                "epid" => p.epid,
+                "seasonId" => seasonId,
                 "ownerName" => p.ownerName == null ? "" : GetValidFileName(p.ownerName, filterSlash: true).Trim().TrimEnd('.').Trim(),
                 "ownerMid" => p.ownerMid ?? "",
                 "dfn" => videoTrack == null ? "" : videoTrack.dfn,

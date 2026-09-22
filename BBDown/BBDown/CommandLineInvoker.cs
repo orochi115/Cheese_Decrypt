@@ -54,6 +54,8 @@ internal static class CommandLineInvoker
     private static readonly Option<string> Mp4decryptPath = new(["--mp4decrypt-path"], "设置 mp4decrypt 的路径(默认 mp4decrypt, 需在 PATH)");
     private static readonly Option<bool> DrmAuto = new(["--drm-auto"],
         "课堂(cheese)DRM 自动取 key (调 scripts/bili-drm-helper.js, 需 Node.js >=18 且已用 --cookie 提供登录态)");
+    private static readonly Option<bool> CheeseIdName = new(["--cheese-id-name"],
+        "课堂文件名改为「<课程名> [ss<seasonId>]/[P<序号>]<分P标题> [ep<epid>].mp4」, 并按该路径跳过已存在文件。默认关闭, 不影响其他命名");
     private static readonly Option<string> NodePath = new(["--node-path"], "设置 node 可执行路径(默认 node, 需在 PATH)");
     private static readonly Option<string> DrmHelperPath = new(["--drm-helper-path"], "覆盖 bili-drm-helper.js 路径(默认相对 BBDown 自动定位)");
     private static readonly Option<string> UposHost = new(["--upos-host"], "自定义upos服务器");
@@ -150,6 +152,7 @@ internal static class CommandLineInvoker
             if (bindingContext.ParseResult.HasOption(Keys)) option.Keys = bindingContext.ParseResult.GetValueForOption(Keys)!;
             if (bindingContext.ParseResult.HasOption(Mp4decryptPath)) option.Mp4decryptPath = bindingContext.ParseResult.GetValueForOption(Mp4decryptPath)!;
             if (bindingContext.ParseResult.HasOption(DrmAuto)) option.DrmAuto = bindingContext.ParseResult.GetValueForOption(DrmAuto)!;
+            if (bindingContext.ParseResult.HasOption(CheeseIdName)) option.CheeseIdName = bindingContext.ParseResult.GetValueForOption(CheeseIdName)!;
             if (bindingContext.ParseResult.HasOption(NodePath)) option.NodePath = bindingContext.ParseResult.GetValueForOption(NodePath)!;
             if (bindingContext.ParseResult.HasOption(DrmHelperPath)) option.DrmHelperPath = bindingContext.ParseResult.GetValueForOption(DrmHelperPath)!;
             if (bindingContext.ParseResult.HasOption(UposHost)) option.UposHost = bindingContext.ParseResult.GetValueForOption(UposHost)!;
@@ -220,6 +223,7 @@ internal static class CommandLineInvoker
             Keys,
             Mp4decryptPath,
             DrmAuto,
+            CheeseIdName,
             NodePath,
             DrmHelperPath,
             UposHost,
