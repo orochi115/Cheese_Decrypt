@@ -43,6 +43,7 @@ cd Cheese_Decrypt
 
 # 下载整个课程（默认 -p ALL）
 ./cheese.sh ss723490818
+./cheese-id.sh ss723490818          # 同上, 文件名带 [ssID] / [epID]
 
 # 下载单集
 ./cheese.sh ep2285190
@@ -64,6 +65,7 @@ cd Cheese_Decrypt
 ```text
 ├── README.md                 ← 本文件
 ├── cheese.sh                 ← 一键下载入口
+├── cheese-id.sh              ← 同上, 默认带 --cheese-id-name
 ├── docs/
 │   ├── cheese-drm-notes.md   ← 现行协议、实现说明、踩坑记录
 │   └── references/

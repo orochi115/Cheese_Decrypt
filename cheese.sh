@@ -6,6 +6,8 @@
 #   ./cheese.sh https://...cheese/play/ssXXX [BBDown 其他参数]
 #   ./cheese.sh ss723490818 --cheese-id-name
 #       可选: 目录「课程名 [ssID]」, 单集「[Pxx]标题 [epID].mp4」, 同名已存在则跳过。默认不启用。
+#   ./cheese-id.sh ss723490818
+#       同上, 包装脚本会自动带上 --cheese-id-name。
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
